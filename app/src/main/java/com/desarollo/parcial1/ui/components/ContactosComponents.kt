@@ -5,33 +5,18 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateListOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.snapshots.SnapshotStateList
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.input.TextFieldValue
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.MutableLiveData
-import com.desarollo.parcial1.models.Contacto
 
 @Composable
 fun Contacto(b:String,function: () -> Unit) {
@@ -67,31 +52,17 @@ fun Vacio() {
 }
 
 @Composable
-fun ListaContactos(a: MutableList<Contacto>,function: () -> Unit) {
-    var lista = remember {
-        mutableStateListOf<Contacto>()
-    }
-
-    if (a.isNotEmpty()) {
-        LazyColumn(state = rememberLazyListState()) {
-            items(lista) { index ->
-                Column(Modifier.padding(5.dp)) {
-                    Contacto(index.name) {
-                        function()
-                    }
+fun ListaContactos(a: Array<String>, function: () -> Unit) {
+    Column {
+        if (a.isNotEmpty()) {
+            for (element in a) {
+                Contacto(element) {
+                    function()
                 }
             }
-    }
-    else {
-        Column(Modifier.padding(5.dp)) {
+        }
+        else {
             Vacio()
         }
-    }
-    Button(onClick = {lista.add(Contacto("Camila",18,"a"))
-        a.add(Contacto("Camila",18,"a")
-        )
-        println(a.size)
-    }) {
-        Text("Añadir Contacto")
     }
 }
