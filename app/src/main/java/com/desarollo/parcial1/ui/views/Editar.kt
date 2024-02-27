@@ -10,12 +10,10 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 
 @Composable
-fun DetallesScreen(navHostController: NavHostController) {
-
+fun EditarScreen(navHostController: NavHostController) {
     Row(modifier = Modifier.padding(5.dp)) {
         Button(onClick = {navHostController.navigate("Contactos")}) {
             Text("<")
         }
-
     }
 }

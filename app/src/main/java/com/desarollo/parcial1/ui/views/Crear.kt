@@ -10,26 +10,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.desarollo.parcial1.models.Contacto
-import com.desarollo.parcial1.ui.components.ListaContactos
 import com.desarollo.parcial1.ui.viewmodels.ContactosViewModel
 
 @Composable
-fun ContactosScreen(navHostController: NavHostController, contactosViewModel: ContactosViewModel) {
-    Column(modifier = Modifier
-        .widthIn(395.dp, 500.dp)
-        .padding(20.dp),
-        horizontalAlignment = Alignment.CenterHorizontally) {
-        Row(modifier = Modifier.padding(25.dp)) {
-            Text("Contactos", fontSize = 35.sp)
-        }
-        ListaContactos(contactosViewModel.contactInfo) {
-            navHostController.navigate("Detalles")
-        }
+fun CrearScreen(navHostController: NavHostController, contactosViewModel: ContactosViewModel) {
+    Column {
         Row(modifier = Modifier.padding(5.dp)) {
+            Button(onClick = {navHostController.navigate("Contactos")}) {
+                Text("<")
+            }
+        }
+        Column(modifier = Modifier
+            .widthIn(395.dp, 500.dp)
+            .padding(20.dp),
+            horizontalAlignment = Alignment.CenterHorizontally) {
+            Button(onClick = {
+                navHostController.navigate("Contactos")
 
+            }) {
+                Text("Añadir")
+            }
         }
     }
 }
