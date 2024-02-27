@@ -44,7 +44,7 @@ fun ContactosScreen(contactosViewModel: ContactosViewModel, navController: NavCo
             Modifier
                 .fillMaxSize()
                 .weight(0.1f),
-            contentAlignment = Alignment.BottomStart
+            contentAlignment = Alignment.BottomCenter
         ) {
 
             BotonAgregar(onClick = { showAddContactDialog.value = true })
