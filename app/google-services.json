@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "529578176894",
+    "firebase_url": "https://parcial1-1e01b-default-rtdb.firebaseio.com",
+    "project_id": "parcial1-1e01b",
+    "storage_bucket": "parcial1-1e01b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:529578176894:android:a04ef23ab27d115e52432f",
+        "android_client_info": {
+          "package_name": "com.desarollo.parcial1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2LTWFRLMl-qto4HjzuzvysaAUcLrPIQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

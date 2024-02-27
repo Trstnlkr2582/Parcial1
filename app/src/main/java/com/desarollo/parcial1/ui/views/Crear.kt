@@ -26,7 +26,6 @@ fun CrearScreen(navHostController: NavHostController, contactosViewModel: Contac
             .padding(20.dp),
             horizontalAlignment = Alignment.CenterHorizontally) {
             Button(onClick = {
-                contactosViewModel.contactInfo.plus("Camila Castañeda")
                 navHostController.navigate("Contactos")
 
             }) {
