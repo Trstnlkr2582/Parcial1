@@ -2,9 +2,9 @@ package com.desarollo.parcial1.models
 
 data class Contacto(
     val name: String,
-    val num: Int,
+    val num: String,
     val email: String
 ) {
-    constructor() : this("",0,"")
+    constructor() : this("","","")
 
 }

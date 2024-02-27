@@ -30,7 +30,9 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavController
 import com.desarollo.parcial1.models.Contacto
@@ -48,7 +50,7 @@ fun lista(navController: NavController, contactos: List<Contacto>) {
 fun Contacto(navController: NavController, contacto: Contacto) {
     Column(modifier = Modifier
         .padding(20.dp, 10.dp, 20.dp, 0.dp)
-        .clickable { navController.navigate("detalleContacto/${contacto.name}") }
+        .clickable { navController.navigate("Detalles/${contacto.name}") }
         .fillMaxWidth()
         .background(Color(237, 244, 244), shape = RoundedCornerShape(5.dp))
     ) {
@@ -64,12 +66,11 @@ fun Contacto(navController: NavController, contacto: Contacto) {
         }
     }
 }
-
 @Composable
 fun BotonAgregar(onClick: () -> Unit, icon: ImageVector = Icons.Rounded.Add) {
     Button(onClick = onClick, modifier = Modifier.padding(15.dp)) {
         Icon(icon, contentDescription = null, modifier = Modifier.padding(0.dp, 0.dp, 10.dp, 0.dp))
-        Text(text = "Agregar Contacto")
+        Text(text = "Agregar Contacto", fontSize = 18.sp)
     }
 }
 
@@ -84,7 +85,7 @@ fun Dialogo(onDismiss: () -> Unit, onSaveContact: (String, String, String) -> Un
         Box(
             modifier = Modifier
                 .clip(RoundedCornerShape(16.dp))
-                .background(Color.Black.copy(alpha = 0.8f))
+                .background(Color(79, 118, 209))
                 .padding(5.dp)
         )
         {

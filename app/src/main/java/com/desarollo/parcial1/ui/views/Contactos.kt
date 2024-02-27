@@ -13,6 +13,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -26,11 +28,12 @@ fun ContactosScreen(contactosViewModel: ContactosViewModel, navController: NavCo
     val showAddContactDialog = remember { mutableStateOf(false) }
     val contactosState by contactosViewModel.obtenerContactos().collectAsState(initial = emptyList())
 
-    Column {
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = "Contactos",
             modifier = Modifier.padding(15.dp),
-            fontSize = 25.sp
+            fontSize = 30.sp,
+            fontFamily = FontFamily.Monospace
         )
         Box(
             Modifier

@@ -17,7 +17,7 @@ fun NavManagement() {
         composable("Contactos") {
             ContactosScreen(ContactosViewModel(),navController)
         }
-        composable("Detalles") { backStackEntry ->
+        composable("Detalles/{contactoID}") { backStackEntry ->
 
             val id = backStackEntry.arguments?.getString("contactoId")
             DetallesScreen(DetallesViewModel(), navController, id ?: "")

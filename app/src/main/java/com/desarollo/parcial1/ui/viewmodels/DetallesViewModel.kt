@@ -14,7 +14,7 @@ class DetallesViewModel: ViewModel() {
 
     suspend fun obtenerContactos(contactoId: String): Contacto? {
         return try {
-            val snapshot = contactosRef.document(contactoId).get().await()
+            val snapshot = contactosRef.document("contactos/$contactoId").get().await()
             snapshot.toObject(Contacto::class.java)
         } catch (e: Exception) {
             println("Error al obtener el contacto: ${e.message}")
@@ -36,9 +36,9 @@ class DetallesViewModel: ViewModel() {
             if (oldContacto != null) {
                 try {
                     val nuevoContacto = hashMapOf(
-                        "Nombre" to name,
-                        "Número de teléfono" to num,
-                        "Correo electrónico" to email
+                        "name" to name,
+                        "num" to num,
+                        "email" to email
                     )
                     contactosRef.document(contactoId).delete()
                     contactosRef.document(name).set(nuevoContacto)

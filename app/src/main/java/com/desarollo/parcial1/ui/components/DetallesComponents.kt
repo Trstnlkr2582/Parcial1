@@ -115,17 +115,15 @@ fun detalles(
 }
 
 @Composable
-fun editarButton(onClick: () -> Unit, icon: ImageVector = Icons.Rounded.Edit) {
+fun editarButton(onClick: () -> Unit) {
     Button(onClick = onClick, Modifier.padding(0.dp, 0.dp, 30.dp, 0.dp)) {
-        Icon(icon, contentDescription = null, modifier = Modifier.padding(15.dp, 0.dp, 15.dp, 0.dp))
         Text("Editar", fontSize = 20.sp)
     }
 }
 
 @Composable
-fun eliminarButton(onClick: () -> Unit, icon: ImageVector = Icons.Rounded.Delete) {
+fun eliminarButton(onClick: () -> Unit) {
     Button(onClick = onClick) {
-        Icon(icon, contentDescription = null, modifier = Modifier.padding(15.dp, 0.dp, 15.dp, 0.dp))
         Text("Eliminar", fontSize = 20.sp)
     }
 }
@@ -161,8 +159,8 @@ fun DialogoEditar(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 TextField(
-                    value = num.toString(),
-                    onValueChange = { num = it.toInt() },
+                    value = num,
+                    onValueChange = { num = it },
                     label = { Text("Número") }
                 )
                 Spacer(modifier = Modifier.height(8.dp))
@@ -173,7 +171,7 @@ fun DialogoEditar(
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 Button(onClick = {
-                    onSaveContact(name, num.toString(), email)
+                    onSaveContact(name, num, email)
                     navController.popBackStack()
                 }
                 ) {

@@ -12,14 +12,14 @@ class ContactosViewModel : ViewModel() {
     private val db = FirebaseFirestore.getInstance()
     private val contactosRef = db.collection("contactos")
 
-    fun agregarContacto(nombre: String, telefono: String, correo: String) {
+    fun agregarContacto(name: String, num: String, email: String) {
         try {
             val nuevoContacto = hashMapOf(
-                "nombre" to nombre,
-                "telefono" to telefono,
-                "correo" to correo
+                "name" to name,
+                "num" to num,
+                "email" to email
             )
-            contactosRef.document(nombre).set(nuevoContacto)
+            contactosRef.document(name).set(nuevoContacto)
         } catch (e: Exception) {
             println("${e.message}")
         }
