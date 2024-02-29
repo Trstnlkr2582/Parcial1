@@ -14,7 +14,7 @@ class DetallesViewModel: ViewModel() {
 
     suspend fun obtenerContactos(contactoId: String): Contacto? {
         return try {
-            val snapshot = contactosRef.document("contactos/$contactoId").get().await()
+            val snapshot = contactosRef.document("$contactoId").get().await()
             snapshot.toObject(Contacto::class.java)
         } catch (e: Exception) {
             println("Error al obtener el contacto: ${e.message}")
